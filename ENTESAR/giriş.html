@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENTESAR KADAN</title>
+    
+    <link rel="shortcut icon" href="./favicon-32x32.png" type="img/x-icon">
+    
+</head>
+<body>
+    <header id="anasayfa">
+        <div class="navbar">
+            <nav>
+                <a href="#anasayfa" id="logo">ENTESAR KADAN</a>
+                <ul>
+                    
+                    <li><a href="index.html">Ana sayfa</a></li>
+                    <li><a href="index.html#hakkımda"> Hakkımda</a></li>
+                    <li><a href="ilgili.html"> İlgili Alanlarım</a></li>
+                    <li><a href="index.html#sehrim">Şehrim</a></li>
+                    <li><a href="index.html#cv">CV</a></li>
+                    <li><a href="index.html#mirasımız">Mirasımız</a></li>
+                    <li><a href="index.html#iletisim">İletişim</a></li>
+                    <li><a href="giriş.html">Giriş yap</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h2>Login Page</h2>
+    <form action="giriş.php" method="POST" onsubmit="return validateForm()">
+        <label for="username">Kullanıcı Adı (Öğrenci Numarası):</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Kullanıcı adının öğrenci numarası formatında olup olmadığını kontrol et
+            var usernamePattern = /^g\d{9}$/;
+            if (!usernamePattern.test(username)) {
+                alert("Geçersiz kullanıcı adı. Öğrenci numaranızı g231210564 formatında giriniz.");
+                return false;
+            }
+
+            // Boş alan kontrolü
+            if (username == "" || password == "") {
+                alert("Kullanıcı adı ve şifre alanları boş geçilemez.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
